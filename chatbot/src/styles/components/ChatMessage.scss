@@ -1,0 +1,22 @@
+.message {
+    width: 100%;
+    margin:5% 0;
+    &--left {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    &--right {
+        display: flex;
+    }
+    &__img {
+        width: 45px;
+        height: 45px;
+    }
+    &__p {
+        display: block;
+        background-color: rgb(241, 240, 240);
+        padding: 12px;
+        border-radius: 5px;
+        margin: 0 6px;
+    }
+}

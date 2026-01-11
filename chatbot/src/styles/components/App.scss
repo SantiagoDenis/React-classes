@@ -1,0 +1,19 @@
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.chatbot-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 700px;
+
+    .messages-container {
+        width: 90%;
+    }
+}
+
