@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+.shelf {
+    @include flex(row, center, center, wrap, 10px);
+    width: 100%;
+}

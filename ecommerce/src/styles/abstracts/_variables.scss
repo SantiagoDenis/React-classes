@@ -1,0 +1,19 @@
+
+$bp-lg: 1024px;
+
+:root{ 
+    --bg:#0f141a;
+    --panel:#161d27;
+    --chip:#212a38;
+    --text:#d7dde6;
+    --muted:#9aa8b5;
+    --ring:rgba(255,255,255,.08);
+}
+
+$colors: (
+    text: var(--text),
+    muted: var(--muted),
+    chip: var(--chip),
+    bg: var(--bg),
+    ring: var(--ring)
+);
