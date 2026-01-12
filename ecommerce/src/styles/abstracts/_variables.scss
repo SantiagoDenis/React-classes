@@ -2,18 +2,17 @@
 $bp-lg: 1024px;
 
 :root{ 
-    --bg:#0f141a;
-    --panel:#161d27;
-    --chip:#212a38;
-    --text:#d7dde6;
-    --muted:#9aa8b5;
-    --ring:rgba(255,255,255,.08);
+    --color-bg:#f0f6f6;                //para los backgrounds
+    --color-surface:#bbe6e4;           //cards y paneles
+    --color-primary:#5603ad;           //call to action
+    --color-accent:#42bfdd;            //highlights
+    --color-primary-soft:#8367c7;      //secondary 
 }
 
 $colors: (
-    text: var(--text),
-    muted: var(--muted),
-    chip: var(--chip),
-    bg: var(--bg),
-    ring: var(--ring)
+    surface: var(--color-surface),
+    primary-soft: var(--color-primary-soft),
+    accent: var(--color-accent),
+    bg: var(--color-bg),
+    primary: var(--color-primary)
 );

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960" height="240" viewBox="0 0 960 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NebulaCart logo">
+  <defs>
+    <linearGradient id="g" x1="120" y1="40" x2="120" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Icon -->
+  <g transform="translate(60,30)" filter="url(#soft)">
+    <!-- Bag body -->
+    <path d="M40 62C40 52.0589 48.0589 44 58 44H162C171.941 44 180 52.0589 180 62V176C180 185.941 171.941 194 162 194H58C48.0589 194 40 185.941 40 176V62Z"
+          fill="url(#g)"/>
+    <!-- Bag highlight -->
+    <path d="M58 54H162C166.418 54 170 57.5817 170 62V170C170 174.418 166.418 178 162 178H58C53.5817 178 50 174.418 50 170V62C50 57.5817 53.5817 54 58 54Z"
+          fill="white" opacity="0.10"/>
+    <!-- Handle -->
+    <path d="M78 64C78 42.4609 95.4609 25 117 25H103C81.4609 25 64 42.4609 64 64V76H78V64Z"
+          fill="white" opacity="0.9"/>
+    <path d="M156 64C156 42.4609 138.539 25 117 25H131C152.539 25 170 42.4609 170 64V76H156V64Z"
+          fill="white" opacity="0.9"/>
+    <!-- Star (nebula) -->
+    <path d="M110 92L117 109L134 116L117 123L110 140L103 123L86 116L103 109L110 92Z"
+          fill="white" opacity="0.95"/>
+    <!-- Small dots -->
+    <circle cx="78" cy="112" r="5" fill="white" opacity="0.7"/>
+    <circle cx="152" cy="132" r="4" fill="white" opacity="0.6"/>
+    <circle cx="146" cy="104" r="3" fill="white" opacity="0.55"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(290,70)">
+    <text x="0" y="58" font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif"
+          font-size="64" font-weight="800" letter-spacing="-0.5" fill="#0F172A">Nebula</text>
+    <text x="260" y="58" font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif"
+          font-size="64" font-weight="800" letter-spacing="-0.5" fill="#06B6D4">Cart</text>
+    <text x="2" y="102" font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif"
+          font-size="18" font-weight="500" fill="#475569">simple shop • clean UI • fast checkout</text>
+  </g>
+</svg>

@@ -27,7 +27,7 @@ const ProductsPage = () => {
                 {
                     products.map((product) => (
                         <div className="card" key={product.id}>
-                            <span>Category: {product.category}</span>
+                            <span>{product.category}</span>
                             <img src={product.images[0]} alt={product.title} />
                             <p className="card__title" >{product.title}</p>
                             <p>{product.price}</p>

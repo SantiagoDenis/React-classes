@@ -1,0 +1,46 @@
+@use "../abstracts" as *;
+
+.header {
+    width: 100%;
+    position: sticky;
+    @include flex(row, flex-start, center, wrap);
+    &__img {
+        width: 30%;
+        max-width: 380px;
+        min-width: 270px;
+        min-height: 70px;
+    }
+    &__btn {
+        width: 3%;
+        min-width: 40px;
+        min-height: 40px;
+        margin-left: auto;
+        margin-right: 5%;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__input {
+        width: 60%;
+        @include flex(row,flex-start, center, wrap);
+        input {
+            min-height: 38px;
+            width: 70%;
+            padding: 10px 60px 10px 15px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            max-width: 40px;
+            max-height: 38px;
+            border: none;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+            img {
+                width: 100%;
+                object-fit: contain;                height: 100%;
+            }
+        }
+    }
+}
