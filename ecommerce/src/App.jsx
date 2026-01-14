@@ -1,13 +1,17 @@
 
-import Header from './components/Header'
+import { Routes, Route } from 'react-router-dom'
 import ProductsPage from './pages/ProductsPage'
+import ProductDetail from './pages/ProductDetail'
+import Layout from './components/Layout'
 
 function App() {
   return (
-    <>
-      <Header></Header>
-      <ProductsPage></ProductsPage>
-    </>
+    <Routes>
+      <Route element={<Layout/>}>
+        <Route index element={<ProductsPage/>} />
+        <Route path='/product/:id' element={<ProductDetail/>} />
+      </Route>
+    </Routes>
   )
 }
 

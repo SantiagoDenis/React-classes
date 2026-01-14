@@ -1,0 +1,51 @@
+@use "../abstracts" as *;
+
+.detail {
+    @include flex(row, center, center, wrap, 20px);
+    width: 100%;
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    background-color: c(surface);
+    backdrop-filter: blur(10px);
+
+    &__img {
+        width: 40%;
+        max-width: 415px;
+        min-width: 330px;
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        img {
+            width: 100%;
+            object-fit: cover;
+            &:hover {
+                transform: scale(1.05);
+                transition: ease-in-out 1s;
+            }
+        }
+        &__badge {
+            position: absolute;
+            top: 0;
+            background: c(accent);
+            border-radius: 999px;
+            padding: 3px 12px;
+            backdrop-filter: blur(10px);
+            user-select: none;
+            &--left {
+                left: 10px;
+                text-transform: capitalize;
+            }
+            &--right {
+                right: 10px;
+                background-color: c(primary-soft);
+            }
+        }
+    }
+    &__info {
+        width: 50%;
+        min-width: 370px;
+    }
+}

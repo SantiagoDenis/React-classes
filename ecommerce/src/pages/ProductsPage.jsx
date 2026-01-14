@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import useProducts from "../hooks/useProducts"
 
 
@@ -31,7 +32,7 @@ const ProductsPage = () => {
                             <img src={product.images[0]} alt={product.title} />
                             <p className="card__title" >{product.title}</p>
                             <p>{product.price}</p>
-                            <a href="#">Go buy</a>
+                            <Link to={`/product/${product.id}`} >Go Buy</Link>
                         </div>
                     ))
                 }
