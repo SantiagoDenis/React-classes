@@ -9,6 +9,8 @@
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     background-color: c(surface);
     backdrop-filter: blur(10px);
+    text-wrap: balance;
+    text-align: justify;
 
     &__img {
         width: 40%;
@@ -47,5 +49,20 @@
     &__info {
         width: 50%;
         min-width: 370px;
+
+        &__title {
+            font-weight: 600;
+            font-size: 2rem;
+            text-shadow: 1px 1px 1px rgb(80, 80, 80);
+        }
+        &__tags {
+            font-size: .7rem;
+            span {
+                background-color: aquamarine;
+                padding: 3px;
+                border: 0.2px solid rgb(184, 255, 255);
+                box-shadow: 0px 0px 10px rgb(156, 255, 255);
+            }
+        }
     }
 }

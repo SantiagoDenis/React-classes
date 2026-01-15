@@ -17,7 +17,7 @@ const ProductDetail = () => {
             </div>
             <div className="detail__info">
                 <p className="detail__info__title" > {product.title} </p>
-                <div>Tags: {product.tags.map((tag) => (
+                <div className="detail__info__tags" >{product.tags.map((tag) => (
                     <span> {tag} </span>
                 ))}</div>
                 <span className="detail__info__rating" > {product.rating} </span>
