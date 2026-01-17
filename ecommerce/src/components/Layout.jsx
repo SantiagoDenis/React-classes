@@ -3,12 +3,12 @@ import Header from './Header'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 
-const Layout = ({category, setCategory}) => {
+const Layout = ({filters, setFilters}) => {
 
     return (
         <>
             <Header/>
-            <Sidebar category={category} setCategory={setCategory}/>
+            <Sidebar filters={filters} setFilters={setFilters}/>
             <Outlet/>
             <Footer/>
         </>

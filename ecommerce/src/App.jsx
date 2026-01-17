@@ -6,11 +6,18 @@ import Layout from './components/Layout'
 import { useState } from 'react'
 
 function App() {
-  const [category, setCategory] = useState('')
+  const [filters, setFilters] = useState({
+    cat: '',
+    minPrice: null,
+    maxPrice: null,
+    sort: '',
+    rating: null,
+    shipping: null
+  })
   return (
     <Routes>
-      <Route element={<Layout category={category} setCategory={setCategory} />}>
-        <Route index element={<ProductsPage category={category} setCategory={setCategory}/>} />
+      <Route element={<Layout filters={filters} setFilters={setFilters} />}>
+        <Route index element={<ProductsPage filters={filters} setFilters={setFilters}/>} />
         <Route path='/product/:id' element={<ProductDetail/>} />
       </Route>
     </Routes>

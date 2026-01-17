@@ -22,7 +22,7 @@
     &__input {
         width: 60%;
         min-width: 331px;
-        @include flex(row,flex-start, center);
+        @include flex(row,center, center);
         input {
             min-height: 38px;
             width: 70%;

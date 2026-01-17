@@ -4,7 +4,7 @@ import useProducts from "../hooks/useProducts"
 
 
 
-const ProductsPage = ({category, setCategory}) => {
+const ProductsPage = ({filters, setFilters}) => {
     const [page, setPage] = useState(0)
     const limit = 20
     const offset = page * limit
@@ -21,13 +21,13 @@ const ProductsPage = ({category, setCategory}) => {
     if(loading) return <p>Loading...</p>
     if(error) return <p>Error: {error.message}</p>
     let productsFiltered = products
-    if(category) productsFiltered = allProds.filter((product) => product.category === category)
+    if(filters.cat) productsFiltered = allProds.filter((product) => product.category === filters.cat)
 
     return (
         <>
             <h1>Products: Page {page+1}</h1>
 
-            {category && <p onClick={() => setCategory('')} >Mostrar todos</p>}
+            {filters.cat && <p onClick={() => setFilters(prev => ({...prev, cat: ''}))} >Mostrar todos</p>}
 
             <div className="shelf">
                 {
@@ -43,7 +43,7 @@ const ProductsPage = ({category, setCategory}) => {
                 }
             </div>
 
-            {!category && 
+            {!filters.cat && 
             <>
             <button onClick={handlePrev} disabled={page === 0} >Previous</button>
             <button onClick={handleNext} >Next</button>
