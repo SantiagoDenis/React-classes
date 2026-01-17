@@ -16,3 +16,6 @@ export const getProductByCategory = (category, { signal } = {}) => {
 export const getRelatedProductsByCategory = (category, { signal } = {}) => {
     return apiGet(`/products/category/${category}?limit=5&skip=0`, { signal })
 }
+export const getProductCategories = () => {
+    return apiGet('/products/category-list')
+}

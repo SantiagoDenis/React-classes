@@ -7,11 +7,6 @@ import { useState } from 'react';
 import Sidebar from './Sidebar';
 
 const Header = () => {
-    const [collapse, setCollapse] = useState(false)
-
-    const handleCollapse = () => {
-        setCollapse(!collapse)
-    }
 
     return (
         <>
@@ -22,10 +17,7 @@ const Header = () => {
                     <input type="search" placeholder='Buscar productos...'/>
                     <button> <img src={searchSvg} alt="" /> </button>
                 </div>
-
-                <button className='header__btn' onClick={() => setCollapse(true)} > <img src={menuLight} alt="menu light" /> </button>
             </div>
-            <Sidebar handleCollapse={handleCollapse} collapse={collapse}/>
         </>
     )
 }

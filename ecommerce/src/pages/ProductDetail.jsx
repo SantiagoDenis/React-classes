@@ -18,7 +18,7 @@ const ProductDetail = () => {
             <div className="detail__info">
                 <p className="detail__info__title" > {product.title} </p>
                 <div className="detail__info__tags" >{product.tags.map((tag) => (
-                    <span> {tag} </span>
+                    <span key={crypto.randomUUID()}> {tag} </span>
                 ))}</div>
                 <span className="detail__info__rating" > {product.rating} </span>
                 <p> {product.description} </p>

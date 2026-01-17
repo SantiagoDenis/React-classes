@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import { getProducts } from '../api/products.api'
 
 
-const useProducts = ({ offset=0, limit=12 } = {}) => {
+const useProducts = ({ offset=0, limit=0 } = {}) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
