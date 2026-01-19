@@ -9,10 +9,9 @@ const Sidebar = ({filters, setFilters}) => {
     const handleCollapse = () => {
         setCollapse(prev => !prev)
     }
-
+    console.log(filters)
 
     const {cat: categories, loading } = useCategories()
-    console.log(categories)
 
     return (
         <>
@@ -25,9 +24,8 @@ const Sidebar = ({filters, setFilters}) => {
                 </div>
                 <div className="sidebar__filters">
                     <h2>Filtros</h2>
-                    <Link className="sidebar__link sidebar__link__rating" to={'/'} onClick={() => handleFilters(cat)} >Rating Asc</Link>
-                    <Link className="sidebar__link sidebar__link__shipping" to={'/'} onClick={() => handleFilters(cat)} >Shipping time Asc</Link>
-                    <Link className="sidebar__link sidebar__link__price" to={'/'} onClick={() => handleFilters(cat)} >Price Asc</Link>
+                    <Link className="sidebar__link sidebar__link__rating" to={'/'} onClick={() => setFilters(prev => ({...prev, sort: "rating-asc"}))} >Rating Asc</Link>
+                    <Link className="sidebar__link sidebar__link__price" to={'/'} onClick={() => setFilters(prev => ({...prev, sort: "price-asc"}))} >Price Asc</Link>
                 </div>
             </div>
             

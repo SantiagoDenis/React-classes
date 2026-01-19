@@ -8,11 +8,9 @@ import { useState } from 'react'
 function App() {
   const [filters, setFilters] = useState({
     cat: '',
-    minPrice: null,
-    maxPrice: null,
-    sort: '',
-    rating: null,
-    shipping: null
+    minPrice: '',
+    maxPrice: '',
+    sort: ''
   })
   return (
     <Routes>
