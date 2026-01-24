@@ -10,7 +10,8 @@ function App() {
     cat: '',
     minPrice: '',
     maxPrice: '',
-    sort: ''
+    sort: '',
+    search: ''
   })
   return (
     <Routes>

@@ -1,6 +1,8 @@
 import { useEffect, useState, useMemo } from "react"
 import { Link } from "react-router-dom"
 import useProducts from "../hooks/useProducts"
+import { FaStarHalf, FaStar } from "react-icons/fa";
+
 
 
 
@@ -13,7 +15,23 @@ const ProductsPage = ({filters, setFilters}) => {
 
     useEffect(() => {
         setPage(0)
-    }, [filters.cat, filters.minPrice, filters.maxPrice, filters.sort])
+    }, [filters.cat, filters.minPrice, filters.maxPrice, filters.sort, filters.search])
+
+    const containsChars = (title, search) => {
+        const text = title.toLowerCase().replace(/ /g, "")
+        const query = search.toLowerCase().replace(/ /g, "")
+        if(!query) return true
+
+        const counts = Object.create(null)
+        for(const char of text) {
+            counts[char] = (counts[char] || 0) + 1
+        }
+        for (const char of query) {
+            if(!counts[char]) return false
+            counts[char]--
+        }
+        return true
+    }
 
     const filteredAndSorted = useMemo(() => {
         let result = allProds
@@ -24,6 +42,9 @@ const ProductsPage = ({filters, setFilters}) => {
         const max = filters.maxPrice === '' ? '' : Number(filters.maxPrice)
         if(min && !Number.isNaN(min)) result = result.filter(p => Number(p.price) >= min)
         if(max && !Number.isNaN(max)) result = result.filter(p => Number(p.price) <= max)
+        if(filters.search) result = result.filter((prod) => {
+            return containsChars(prod.title, filters.search)
+        })
 
         const sorted = [...result]
         switch (filters.sort) {
@@ -46,7 +67,7 @@ const ProductsPage = ({filters, setFilters}) => {
         return sorted
     }, [allProds, filters])
 
-    const totalPages = Math.ceil(filteredAndSorted / limit)
+    const totalPages = Math.ceil(filteredAndSorted.length / limit)
 
     const pageItems = useMemo(() => {
         return filteredAndSorted.slice(offset, (offset + limit))
@@ -58,37 +79,52 @@ const ProductsPage = ({filters, setFilters}) => {
     const handleNext = () => {
         setPage(currentPage => currentPage+1)
     }
+    const renderStars = (rating) => {
+        const stars = []
+        for(let i = 0; i < Math.floor(rating); i++) {
+            stars.push(
+                <li key={i} ><FaStar className="card__rating__star" /></li>
+            )
+        }
+        if(rating % 1 >= 0.5) stars.push(<li key="half star"> <FaStarHalf className="card__rating__star" /> </li>)
+
+        return <ul className="card__rating__stars">{stars}</ul>
+
+    }
 
     if(loading) return <p>Loading...</p>
     if(error) return <p>Error: {error.message}</p>
-
     return (
         <>
             <h1>Products: Page {page+1}</h1>
 
-            {(filters.cat || filters.minPrice || filters.maxPrice || filters.sort)
-            && <p onClick={() => setFilters(prev => ({cat: '', minPrice: '', maxPrice: '', sort: ''}))} >Mostrar todos</p>}
+            {(filters.cat || filters.minPrice || filters.maxPrice || filters.sort || filters.search)
+            && <p onClick={() => setFilters(({cat: '', minPrice: '', maxPrice: '', sort: '', search: ''}))} >Quitar filtros</p>}
 
             <div className="shelf">
                 {
+                    filteredAndSorted.length ?
                     pageItems.map((product) => (
                         <div className="card" key={product.id}>
                             <span>{product.category}</span>
                             <img src={product.images[0]} alt={product.title} />
                             <p className="card__title" >{product.title}</p>
-                            <p>{product.price}</p>
+                            <p className="card__price">${product.price}</p>
+                            <div className="card__rating">Rating: {renderStars(product.rating)} ({product.rating})</div>
                             <Link to={`/product/${product.id}`} >Go Buy</Link>
                         </div>
                     ))
+                    :
+                    <>Hola no encontramos ese producto reineguen</>
                 }
             </div>
 
-            {!filters.cat && 
+            
             <>
             <button onClick={handlePrev} disabled={page === 0} >Previous</button>
             <button onClick={handleNext} disabled={page >= totalPages -1} >Next</button>
             </>
-            }
+            
         </>
     )
 

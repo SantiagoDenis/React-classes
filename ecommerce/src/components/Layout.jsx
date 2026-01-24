@@ -7,7 +7,7 @@ const Layout = ({filters, setFilters}) => {
 
     return (
         <>
-            <Header/>
+            <Header filters={filters} setFilters={setFilters}/>
             <Sidebar filters={filters} setFilters={setFilters}/>
             <Outlet/>
             <Footer/>

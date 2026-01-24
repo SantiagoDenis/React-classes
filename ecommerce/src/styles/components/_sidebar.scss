@@ -42,6 +42,27 @@ $sidebar-w: min(600px, 85vw);
         text-decoration: none;
         color: c(bg);
     }
+    &__btn {
+        padding: 10px 15px;
+        border: none;
+        background-color: c(accent);
+        opacity: .7;
+        color: c(bg);
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 10px c(primary);
+        margin: 10px 0;
+        min-width: 85px;
+        &:hover {
+            opacity: 1;
+        }
+        &--rating {
+            border-radius: 50px 10px 50px 10px;
+        }
+        &--price {
+            border-radius: 10px 50px 10px 50px;
+        }
+    }
 
     &__filters {
         @include flex(column, center, start, wrap);

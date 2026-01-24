@@ -35,6 +35,22 @@
     }
     &__title {
         height: 40px;
+        
+    }
+    &__price {
+        font-weight: 900;
+        font-size: x-large;
+    }
+    &__rating {
+        @include flex(row, center, center, wrap, 4px);
+        &__stars {
+            list-style-type: none;
+            @include flex(row, center, center, wrap, 4px);
+            
+        }
+        &__star {
+            color: c(accent);
+        }
     }
 
     

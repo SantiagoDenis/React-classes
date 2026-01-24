@@ -1,17 +1,28 @@
 import { useState } from "react"
 import useCategories from "../hooks/useCategories"
 import {Link} from 'react-router-dom'
+import { TbSortDescending, TbSortAscending } from "react-icons/tb";
 
 
 const Sidebar = ({filters, setFilters}) => {
     const [collapse, setCollapse] = useState(false)
+    const [isRAsc, setIsRAsc] = useState(true)
+    const [isPAsc, setIsPAsc] = useState(true)
+    const {cat: categories, loading } = useCategories()
 
     const handleCollapse = () => {
         setCollapse(prev => !prev)
     }
-    console.log(filters)
-
-    const {cat: categories, loading } = useCategories()
+    const handleROrder = () => {
+        setIsRAsc(prev => !prev)
+        if(isRAsc) setFilters(prev => ({...prev, sort: "rating-asc"}))
+        else setFilters(prev => ({...prev, sort: "rating-desc"}))
+    }
+    const handlePOrder = () => {
+        setIsPAsc(prev => !prev)
+        if(isPAsc) setFilters(prev => ({...prev, sort: "price-asc"}))
+        else setFilters(prev => ({...prev, sort: "price-desc"}))
+    }
 
     return (
         <>
@@ -24,8 +35,8 @@ const Sidebar = ({filters, setFilters}) => {
                 </div>
                 <div className="sidebar__filters">
                     <h2>Filtros</h2>
-                    <Link className="sidebar__link sidebar__link__rating" to={'/'} onClick={() => setFilters(prev => ({...prev, sort: "rating-asc"}))} >Rating Asc</Link>
-                    <Link className="sidebar__link sidebar__link__price" to={'/'} onClick={() => setFilters(prev => ({...prev, sort: "price-asc"}))} >Price Asc</Link>
+                    <button className="sidebar__btn sidebar__btn--rating" onClick={handleROrder} > {isRAsc ? <>Rating: <TbSortAscending/></> : <>Rating: <TbSortDescending /></> } </button>
+                    <button className="sidebar__btn sidebar__btn--price" onClick={handlePOrder} > {isPAsc ? <>Price: <TbSortAscending/></> : <>Price: <TbSortDescending /></> } </button>
                 </div>
             </div>
             
