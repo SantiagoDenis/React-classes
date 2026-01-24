@@ -96,10 +96,22 @@ const ProductsPage = ({filters, setFilters}) => {
     if(error) return <p>Error: {error.message}</p>
     return (
         <>
-            <h1>Products: Page {page+1}</h1>
+            <header className="page-head">
 
-            {(filters.cat || filters.minPrice || filters.maxPrice || filters.sort || filters.search)
-            && <p onClick={() => setFilters(({cat: '', minPrice: '', maxPrice: '', sort: '', search: ''}))} >Quitar filtros</p>}
+                <p className="page-head__subtitle">
+                    Page <span className="page-head__pill">{page + 1}</span> of {totalPages}
+                </p>
+
+                {(filters.cat || filters.minPrice || filters.maxPrice || filters.sort || filters.search) && (
+                    <button
+                    className="page-head__clear"
+                    onClick={() => setFilters({ cat: "", minPrice: "", maxPrice: "", sort: "", search: "" })}
+                    type="button"
+                    >
+                    Quitar filtros
+                    </button>
+                )}
+            </header>
 
             <div className="shelf">
                 {
@@ -120,10 +132,23 @@ const ProductsPage = ({filters, setFilters}) => {
             </div>
 
             
-            <>
-            <button onClick={handlePrev} disabled={page === 0} >Previous</button>
-            <button onClick={handleNext} disabled={page >= totalPages -1} >Next</button>
-            </>
+            
+            <div className="pager">
+                <button className="pager__btn" onClick={handlePrev} disabled={page === 0} type="button">
+                    Previous
+                </button>
+
+                <div className="pager__status">
+                    <span className="pager__dot" aria-hidden="true" />
+                    <span>
+                    {page + 1} / {totalPages}
+                    </span>
+                </div>
+
+                <button className="pager__btn" onClick={handleNext} disabled={page >= totalPages - 1} type="button">
+                    Next
+                </button>
+            </div>
             
         </>
     )

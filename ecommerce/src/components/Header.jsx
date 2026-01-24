@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import cart from '../assets/NebulaCart-logo.svg';
 import searchSvg from '../assets/search-svg.svg'
+import { Link } from 'react-router-dom';
 
 const Header = ({filters, setFilters}) => {
 
@@ -13,7 +14,7 @@ const Header = ({filters, setFilters}) => {
     return (
         <>
             <div className="header">
-                <img className='header__img' src={cart} alt="Nebula Cart" />
+                <Link to={'/'}><img className='header__img' src={cart} alt="Nebula Cart" /></Link>
 
                 <div className="header__input">
                     <input onChange={handleChange} type="search" placeholder='Buscar productos...'/>

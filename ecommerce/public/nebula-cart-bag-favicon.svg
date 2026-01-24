@@ -1,0 +1,38 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  aria-label="Nebula Cart shopping bag icon"
+>
+  <defs>
+    <linearGradient id="nebulaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#42bfdd"/>
+      <stop offset="100%" stop-color="#5603ad"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bag body -->
+  <path
+    d="M16 22
+       h32
+       l-3 34
+       a4 4 0 0 1 -4 4
+       h-18
+       a4 4 0 0 1 -4 -4
+       z"
+    fill="url(#nebulaGradient)"
+    stroke="rgba(0,0,0,0.15)"
+    stroke-width="1.5"
+  />
+
+  <!-- Handles -->
+  <path
+    d="M22 22
+       v-6
+       a10 10 0 0 1 20 0
+       v6"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+</svg>
